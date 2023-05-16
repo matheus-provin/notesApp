@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/matheus-provin.github.io/notesApp/static/css/main.31748f70.css",
-    "main.js": "/matheus-provin.github.io/notesApp/static/js/main.38229b16.js",
-    "static/js/787.09a4dcbe.chunk.js": "/matheus-provin.github.io/notesApp/static/js/787.09a4dcbe.chunk.js",
-    "index.html": "/matheus-provin.github.io/notesApp/index.html",
-    "main.31748f70.css.map": "/matheus-provin.github.io/notesApp/static/css/main.31748f70.css.map",
-    "main.38229b16.js.map": "/matheus-provin.github.io/notesApp/static/js/main.38229b16.js.map",
-    "787.09a4dcbe.chunk.js.map": "/matheus-provin.github.io/notesApp/static/js/787.09a4dcbe.chunk.js.map"
+    "main.css": "/notesApp/static/css/main.31748f70.css",
+    "main.js": "/notesApp/static/js/main.8043acca.js",
+    "static/js/787.09a4dcbe.chunk.js": "/notesApp/static/js/787.09a4dcbe.chunk.js",
+    "index.html": "/notesApp/index.html",
+    "main.31748f70.css.map": "/notesApp/static/css/main.31748f70.css.map",
+    "main.8043acca.js.map": "/notesApp/static/js/main.8043acca.js.map",
+    "787.09a4dcbe.chunk.js.map": "/notesApp/static/js/787.09a4dcbe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31748f70.css",
-    "static/js/main.38229b16.js"
+    "static/js/main.8043acca.js"
   ]
 }
