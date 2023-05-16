@@ -1,7 +1,6 @@
 {
   "name": "react-notes-app",
   "version": "0.1.0",
-  "homepage": "matheus-provin.github.io/notesApp",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
