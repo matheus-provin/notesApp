@@ -1,12 +1,27 @@
+import React, { ChangeEvent } from "react";
 import ReactMarkdown from "react-markdown";
 
-const Main = ({ activeNote, onUpdateNote }) => {
-  const onEditField = (field, value) => {
-    onUpdateNote({
-      ...activeNote,
-      [field]: value,
-      lastModified: Date.now(),
-    });
+interface Note {
+  id: string;
+  title: string;
+  body: string;
+  lastModified: number;
+}
+
+interface MainProps {
+  activeNote: Note | null;
+  onUpdateNote: (updatedNote: Note) => void;
+}
+
+const Main: React.FC<MainProps> = ({ activeNote, onUpdateNote }) => {
+  const onEditField = (field: keyof Note, value: string) => {
+    if (activeNote) {
+      onUpdateNote({
+        ...activeNote,
+        [field]: value,
+        lastModified: Date.now(),
+      });
+    }
   };
 
   if (!activeNote) return <div className="no-active-note">No Active Note</div>;

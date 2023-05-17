@@ -1,22 +1,28 @@
-import { useEffect, useState } from "react";
-import uuid from "react-uuid";
+import React, { useEffect, useState } from "react";
+import { v4 as uuid } from "uuid";
 import "./App.css";
 import Main from "./Main";
 import Sidebar from "./SideBar";
 
+interface Note {
+  id: string;
+  title: string;
+  body: string;
+  lastModified: number;
+}
 
 function App() {
-  const [notes, setNotes] = useState(
+  const [notes, setNotes] = useState<Note[]>(
     localStorage.notes ? JSON.parse(localStorage.notes) : []
   );
-  const [activeNote, setActiveNote] = useState(false);
-  let eu = 'eu'
+  const [activeNote, setActiveNote] = useState<string | null>(null);
+
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
   const onAddNote = () => {
-    const newNote = {
+    const newNote: Note = {
       id: uuid(),
       title: "Nota sem título",
       body: "",
@@ -27,24 +33,23 @@ function App() {
     setActiveNote(newNote.id);
   };
 
-  const onDeleteNote = (noteId) => {
+  const onDeleteNote = (noteId: string) => {
     setNotes(notes.filter(({ id }) => id !== noteId));
   };
 
-  const onUpdateNote = (updatedNote) => {
+  const onUpdateNote = (updatedNote: Note) => {
     const updatedNotesArr = notes.map((note) => {
       if (note.id === updatedNote.id) {
         return updatedNote;
       }
-
       return note;
     });
 
     setNotes(updatedNotesArr);
   };
 
-  const getActiveNote = () => {
-    return notes.find(({ id }) => id === activeNote);
+  const getActiveNote = (): Note | null => {
+    return activeNote ? notes.find(({ id }) => id === activeNote) || null : null;
   };
 
   return (
@@ -53,7 +58,7 @@ function App() {
         notes={notes}
         onAddNote={onAddNote}
         onDeleteNote={onDeleteNote}
-        activeNote={activeNote}
+        activeNote={activeNote || ""}
         setActiveNote={setActiveNote}
       />
       <Main activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
